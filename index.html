@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro Eletrônico</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="Image/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    
+    <main>
+    <div class="content-box">
+        <form action="" class="form-livro">
+          <div class="box">
+            <label for="estacao">1. Estação:</label><br>
+             <select name="estacao" id="estacao">
+                <option value="SPO PH">SPO PH</option>
+                <option value="SPO PH">SPO MB</option>
+                <option value="SPO PH">SPO LP</option>
+                <option value="SPO PH">SPO IG</option>
+             </select>
+          </div> 
+             <br>
+             <div class="box">
+                <label for="estacao">2. Tipo de ocorrência:</label><br>
+                    <select name="estacao" id="estacao">
+                      <option value="Recuperacao">Recuperação</option>
+                      <option value="Ativação">Ativação</option>
+                      <option value="OTS">OTS</option>
+                    </select>
+            </div>
+             <br>
+             <div class="box">
+                <label for="descricao">3.Descrição:</label><br>
+                <textarea name="descricao" id="descricao" cols="90" rows="10" placeholder="Digite sua resposta"></textarea>
+            </div>
+             <br>
+             <div class="box">
+                <label for="Empresa">4.Empresa:</label><br>
+                <select name="empresa" id="empresa">
+                     <option value="Embratel">Embratel / claro</option>
+                     <option value="Procisa">Procisa</option>
+                     <option value="Vivo">Telefonica / Vivo</option>
+                     <option value="Tim">Tim</option>
+                     <option value="Algar">Algar</option>
+                     <option value="Logicalis">Logicalis</option>
+                     <option value="Lumen">Lumem / Centurylink</option>
+                     <option value="Nokia">Nokia</option>
+                     <option value="Padtec">Padtec</option>
+                     <option value="Outra">Outra</option>
+            </select>
+            </div>
+            <br>
+
+            <div class="box">
+                <label for="data">5. Data:</label> <br>
+                <input type="date" id="data" name="data">
+            </div>
+            <br>
+
+            <div class="box">
+                <label for="data">6. Hora: </label>
+                <p><span>HH:mm</span></p>
+                <input type="time" min="08:00" max="17:00" name="hour" required> 
+            </div>
+            <br>
+
+            <div class="box">   
+               <label for="file">7. Anexos(Opcional) (pergunta não anonima):</label><br>
+               <input type="file" id="Myfile" name="Myfile">
+            </div>
+
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+    </main>
+
+
+</body>
+</html>
