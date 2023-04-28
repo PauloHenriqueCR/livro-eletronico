@@ -2,15 +2,59 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Configuração de Responsivo -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Livro Eletrônico</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="Image/favicon.ico" type="image/x-icon">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+ $(document).ready(function () {
+        $("#myForm").submit(function () {
+          //Impede que o formulario seja submetido normalmente
+          e.preventDefault();
+
+          //Variaveis que recuperam os dados do formulário
+          var estacao = $("estacao").val();
+          var ocorrencia = $("ocorrencia").val();
+          var descricao = $("descricao").val();
+          var empresa = $("empresa ").val();
+          var data = $("data").val();
+          var hora = $("hora").val();
+
+          //Envia os dados para a planilha usando uma requisição AJAX
+          $.ajax({
+            url: "https://sesisenaispedu-my.sharepoint.com/:x:/r/personal/paulo_rocha8_senaisp_edu_br/_layouts/15/doc2.aspx?sourcedoc=%7B85CA9969-75AC-4144-A2B5-3A4AD4AF5A67%7D&file=Pasta.xlsx&action=editnew&mobileredirect=true&wdNewAndOpenCt=1682558855718&ct=1682558856165&wdPreviousSession=a35611f2-e060-4d1d-8f09-1eac8e5ce510&wdOrigin=OFFICECOM-WEB.START.NEW&cid=84b599b1-9868-47ee-ae30-81ebf05b1f62&wdPreviousSessionSrc=HarmonyWeb",
+            method: "POST",
+            data: {
+              estacao: estacao,
+              ocorrencia: ocorrencia,
+              descricao: descricao,
+              empresa: empresa,
+              data: data,
+              hora: hora,
+            },
+            success: function (response) {
+              alert("Dados enviados com sucesso");
+            },
+            error: function (response) {
+              alert("Ocorreu um erro ao enviar os dados");
+            },
+          });
+        });
+      });
+</script>
+
 </head>
 <body>
     
     <main>
+    <div class="box-logo">
+            <img src="Image/logo.jpeg" alt="Logo-Claro">
+            <h1>Livro Eletrônico</h1>
+    </div>
     <div class="content-box">
         <form action="" class="form-livro">
           <div class="box">
@@ -34,7 +78,7 @@
              <br>
              <div class="box">
                 <label for="descricao">3.Descrição:</label><br>
-                <textarea name="descricao" id="descricao" cols="90" rows="10" placeholder="Digite sua resposta"></textarea>
+                <textarea name="descricao" id="descricao" cols="50" rows="10" placeholder="Digite sua resposta"></textarea>
             </div>
              <br>
              <div class="box">
@@ -61,8 +105,7 @@
             <br>
 
             <div class="box">
-                <label for="data">6. Hora: </label>
-                <p><span>HH:mm</span></p>
+                <label>6. Hora:</label>
                 <input type="time" min="08:00" max="17:00" name="hour" required> 
             </div>
             <br>
